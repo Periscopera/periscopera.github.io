@@ -1,10 +1,41 @@
-function getRandomArbitrary(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
+var currentIndex = 0
+var entries = []
+
+// Returns a random integer between 0 (inclusive) and `max` (exclusive).
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
 }
 
-// Settings
+// Shuffles `array`.
+//
+// Replaces the `i`th element with a random element of the array between 0 and
+// `i`. It does that for in between [`length - 1`, 0].
+function shuffle(array) {
+  var randomIndex, temp
+  for (var i = array.length - 1; i > -1; i--) {
+    randomIndex = getRandomInt(i + 1)
+    temp = array[i]
+    array[i] = array[randomIndex]
+    array[randomIndex] = temp
+  }
+}
+
+function loadVideo(entry) {
+  document.querySelector(".video").setAttribute("style", "background-image: url(" + entry.video + ")")
+  document.querySelector(".tags").innerText = entry.tags
+  document.querySelector(".location span").innerText = entry.city
+  document.querySelector(".location small").innerText = entry.country
+}
+
+// Increases `currentIndex`'s value by one and loads the corresponding entry.
+function playNextVideo() {
+  currentIndex = (currentIndex + 1) % entries.length
+  loadVideo(entries[currentIndex])
+}
+
+// Callback executed at soon as the sheet data gets loaded.
 function sheetLoaded(data) {
-  data = data.feed.entry.map(function (entry) {
+  entries = data.feed.entry.map(function (entry) {
     return {
       tags: entry['gsx$tags']['$t'],
       city: entry['gsx$city']['$t'],
@@ -13,17 +44,8 @@ function sheetLoaded(data) {
     }
   })
 
-  var randomData = data[getRandomArbitrary(0, data.length - 1)]
+  shuffle(entries)
+  loadVideo(entries[currentIndex])
 
-  var videoElement = document.querySelector(".video")
-  videoElement.setAttribute("style", "background-image: url(" + randomData.video + ")")
-  videoElement.addEventListener("click", function () {
-    window.location.reload()
-  })
-
-  document.querySelector(".tags").innerText = randomData.tags
-
-  document.querySelector(".location span").innerText = randomData.city
-
-  document.querySelector(".location small").innerText = randomData.country
+  document.querySelector(".video").addEventListener("click", playNextVideo)
 }
