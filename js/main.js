@@ -15,19 +15,15 @@ function sheetLoaded(data) {
 
   var randomData = data[getRandomArbitrary(0, data.length - 1)]
 
-  d3.select(".video")
-    .style("background-image", "url(" + randomData.video + ")")
-
-  d3.select(".tags")
-    .text(randomData.tags)
-
-  d3.select(".location span")
-    .text(randomData.city)
-
-  d3.select(".location small")
-    .text(randomData.country)
-
-  d3.select(".video").on("click", function(){
-    window.location.reload();
+  var videoElement = document.querySelector(".video")
+  videoElement.setAttribute("style", "background-image: url(" + randomData.video + ")")
+  videoElement.addEventListener("click", function () {
+    window.location.reload()
   })
+
+  document.querySelector(".tags").innerText = randomData.tags
+
+  document.querySelector(".location span").innerText = randomData.city
+
+  document.querySelector(".location small").innerText = randomData.country
 }
