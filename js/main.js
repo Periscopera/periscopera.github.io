@@ -1,5 +1,6 @@
 var currentIndex = 0
 var entries = []
+var thread;
 
 // Returns a random integer between 0 (inclusive) and `max` (exclusive).
 function getRandomInt(max) {
@@ -31,6 +32,21 @@ function loadVideo(entry) {
 function playNextVideo() {
   currentIndex = (currentIndex + 1) % entries.length
   loadVideo(entries[currentIndex])
+}
+
+// Show controls and info
+document.querySelector("html").addEventListener("mousemove", function( event ) {
+  console.log("mouse move"); 
+
+  document.querySelector(".colophon").setAttribute("style", "top: 16px; transition: all 0.2s")
+
+  clearTimeout(thread);
+  thread = setTimeout(mousestopped, 2000);
+}); 
+
+function mousestopped(){
+  document.querySelector(".colophon").setAttribute("style", "top: -26px; transition: all 0.2s")
+  console.log("Mouse stopped!");
 }
 
 // Callback executed at soon as the sheet data gets loaded.

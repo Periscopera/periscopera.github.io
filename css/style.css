@@ -36,15 +36,15 @@ img.video {
 }
 .colophon {
   position: absolute;
-  top: 16px;
+  top: -26px;
   left: 20px;
   color: #fff;  
 }
 .colophon p {
   margin: 0;
   font-size: 11px;
-    background: #000;
-    padding: 0.5em;
+  background: #000;
+  padding: 0.5em;
 }
 .colophon p a:link, .colophon p a:visited {
   color: #fff;
