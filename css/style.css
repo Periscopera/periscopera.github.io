@@ -36,27 +36,43 @@ img.video {
 }
 .colophon {
   position: absolute;
-  top: -26px;
-  left: 20px;
+  top: -120px;
   color: #fff;  
 }
-.colophon p {
-  margin: 0;
-  font-size: 11px;
+.colophon.next {
+  background: #000;
+  padding: 10px;
+  margin: 12px 0;
+}
+.colophon.next a {
+  font-size: 1.5em;
+}
+.colophon a:link, .colophon a:visited {
+  color: #fff;
+}
+.colophon.next a {
+  text-decoration: none;
+}
+.title { 
+  left: 20px; 
+}
+.next {
+  right: 20px;
+}
+.desc h2, .desc h5, .title h2 {
+  margin: 0.5em 0;
   background: #000;
   padding: 0.5em;
 }
-.colophon p a:link, .colophon p a:visited {
-  color: #fff;
-}
-.desc h2, .desc h5 {
-  margin: 0.5em 0;
-    background: #000;
-    padding: 0.5em;
-}
-.desc h2 {
+.desc h2, .title h2 {
   text-transform: uppercase;
-    letter-spacing: 3px;
+  letter-spacing: 3px;
+}
+.title small {
+  text-transform: lowercase;
+  font-weight: 100;
+  letter-spacing: normal;
+  font-size: 0.6em;
 }
 .desc h5 {
   display: inline;

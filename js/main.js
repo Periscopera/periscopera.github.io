@@ -35,18 +35,19 @@ function playNextVideo() {
 }
 
 // Show controls and info
-document.querySelector("html").addEventListener("mousemove", function( event ) {
-  console.log("mouse move"); 
+document.querySelector("html").addEventListener("mousemove", showControls); 
+document.querySelector(".video").addEventListener("click", showControls); 
 
-  document.querySelector(".colophon").setAttribute("style", "top: 16px; transition: all 0.2s")
-
+function showControls(){
+  document.querySelector(".title").setAttribute("style", "top: 16px; transition: all 0.2s")
+  document.querySelector(".next").setAttribute("style", "top: 16px; transition: all 0.2s")
   clearTimeout(thread);
   thread = setTimeout(mousestopped, 2000);
-}); 
+}
 
 function mousestopped(){
-  document.querySelector(".colophon").setAttribute("style", "top: -26px; transition: all 0.2s")
-  console.log("Mouse stopped!");
+  document.querySelector(".title").setAttribute("style", "top: -120px; transition: all 0.2s")
+  document.querySelector(".next").setAttribute("style", "top: -120px; transition: all 0.2s")
 }
 
 // Callback executed at soon as the sheet data gets loaded.
@@ -63,5 +64,5 @@ function sheetLoaded(data) {
   shuffle(entries)
   loadVideo(entries[currentIndex])
 
-  document.querySelector(".video").addEventListener("click", playNextVideo)
+  document.querySelector("#next").addEventListener("click", playNextVideo)
 }
