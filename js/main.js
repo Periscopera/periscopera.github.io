@@ -65,4 +65,5 @@ function sheetLoaded(data) {
   loadVideo(entries[currentIndex])
 
   document.querySelector("#next").addEventListener("click", playNextVideo)
+  document.querySelector(".video").addEventListener("click", playNextVideo)
 }
