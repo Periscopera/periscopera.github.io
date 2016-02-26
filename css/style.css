@@ -4,16 +4,37 @@ body {
 }
 
 /* video */
-.video, .matrix {
+.video, .matrix, .mobileNext {
   position: absolute;
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
+}
+.tiny {
+  width: 50%;
+  float: left;
+  height: 150px;
+  display: block;
+}
+@media (min-width: 481px) {
+  .desc h2, .title h2 {
+    font-size: 24px;
+  }
+}
+@media (max-width: 480px) {
+  .desc h2, .title h2 {
+    font-size: 20px;
+  }
 }
 .videos {
-    width: 25%;
-    height: 200px;
-    float: left;
-    overflow: hidden;
+  width: 25%;
+  height: 200px;
+  float: left;
+  overflow: hidden;
+}
+.staticVideos {
+  width: 100%;
+  display: inline-block;
+  margin: 10px 0;
 }
 .video {
   background-repeat: no-repeat;
@@ -22,43 +43,86 @@ body {
 }
 .video img {
   min-width: 100%;
-    height: 100%;
+  height: 100%;
 }
 img.video {
   min-width: 100%;
-    height: 100%;
+  height: 100%;
 }
 .desc {
   position: absolute;
   bottom: 20px;
   left: 20px;
   color: #fff;  
+  z-index: 3;
 }
 .colophon {
   position: absolute;
-  top: 16px;
-  left: 20px;
+  top: -120px;
   color: #fff;  
+  z-index: 3;
 }
-.colophon p {
-  margin: 0;
-  font-size: 11px;
-    background: #000;
-    padding: 0.5em;
+.colophon.next, .colophon.nextInfo {
+  margin: 10px 0;
 }
-.colophon p a:link, .colophon p a:visited {
+.colophon.next a, .colophon.nextInfo a {
+  font-size: 1.5em;
+}
+.colophon a:link, .colophon a:visited {
   color: #fff;
 }
-.desc h2, .desc h5 {
-  margin: 0.5em 0;
-    background: #000;
-    padding: 0.5em;
+.colophon.next a, .colophon.nextInfo a {
+  text-decoration: none;
 }
-.desc h2 {
+.title { 
+  left: 20px; 
+}
+.next {
+  right: 20px;
+}
+.nextInfo {
+  right: 20px;
+  top: 16px;
+}
+.desc h2, .desc h5, .title h2 {
+  margin: 0.5em 0;
+}
+.desc h2, .title h2, h2.title {
   text-transform: uppercase;
-    letter-spacing: 3px;
+  letter-spacing: 3px;
+}
+.title small {
+  text-transform: lowercase;
+  font-weight: 100;
+  letter-spacing: normal;
+  font-size: 0.6em;
 }
 .desc h5 {
   display: inline;
 }
 
+/* Info
+body.info {
+  background: #000;
+  color: #fff;
+} */
+.description {
+  width: 600px;
+  padding: 9px 20px;
+}
+.description p {
+  font-weight: 100;
+  font-size: 15px;
+  line-height: 1.5em;
+}
+.description a:link, .description a:visited, .description a:hover {
+  color: #000;
+}
+.day {
+  background-image: url("http://184.7.223.151:80/mjpg/video.mjpg");
+  background-size: cover;
+}
+.night {
+  background-image: url("http://219.117.241.90:80/mjpg/video.mjpg");
+  background-size: cover;
+}
