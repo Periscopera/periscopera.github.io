@@ -2,7 +2,10 @@ body {
   margin: 0;
   font-family: helvetica, arial, sans-serif;
 }
-
+hr {
+  border: none;
+  border-bottom: 1px solid #000;
+}
 /* video */
 .video, .matrix, .mobileNext {
   position: absolute;
@@ -12,17 +15,30 @@ body {
 .tiny {
   width: 50%;
   float: left;
-  height: 150px;
   display: block;
 }
 @media (min-width: 481px) {
   .desc h2, .title h2 {
     font-size: 24px;
   }
+  .description {
+    width: 600px;
+    padding: 9px 20px;
+  }
+  .tiny {
+    height: 150px;
+  }
 }
 @media (max-width: 480px) {
   .desc h2, .title h2 {
     font-size: 20px;
+  }
+  .description {
+    width: 90%;
+    padding: 9px 5%;
+  }
+  .tiny {
+    height: 110px;
   }
 }
 .videos {
@@ -106,10 +122,6 @@ body.info {
   background: #000;
   color: #fff;
 } */
-.description {
-  width: 600px;
-  padding: 9px 20px;
-}
 .description p {
   font-weight: 100;
   font-size: 15px;
