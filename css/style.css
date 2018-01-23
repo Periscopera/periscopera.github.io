@@ -1,8 +1,6 @@
 body {
   margin: 0;
-  font-family: helvetica, arial, sans-serif;
-  background: url('/loading.gif') center 35vh no-repeat;
-  background-size: 145px 204px;  
+  font-family: helvetica, arial, sans-serif; 
 }
 hr {
   border: none;
@@ -18,6 +16,10 @@ hr {
   width: 50%;
   float: left;
   display: block;
+}
+.loading {
+  background: url('/loading.gif') center 35vh no-repeat;
+  background-size: 145px 204px; 
 }
 @media (min-width: 481px) {
   .desc h2, .title h2 {
