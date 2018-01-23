@@ -1,6 +1,8 @@
 body {
   margin: 0;
   font-family: helvetica, arial, sans-serif;
+  background: url('/loading.gif') center 35vh no-repeat;
+  background-size: 145px 204px;  
 }
 hr {
   border: none;
